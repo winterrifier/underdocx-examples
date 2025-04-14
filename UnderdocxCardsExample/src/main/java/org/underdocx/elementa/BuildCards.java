@@ -36,15 +36,19 @@ import java.io.IOException;
 public class BuildCards {
 
     public static void main(String[] args) throws IOException {
+        OdgContainer doc = new OdgContainer(BuildCards.class.getResourceAsStream("./templates/demo.odg"));
         MapDataNode data = new MapDataNode(BuildCards.class.getResourceAsStream("./data/elementa.json"));
         DataNode<?> cards = data.getProperty("karten");
-        OdgContainer doc = new OdgContainer(BuildCards.class.getResourceAsStream("./templates/cardsbuilder.odg"));
         OdgEngine engine = new OdgEngine();
+        engine.registerStringReplacement("game", "${Import $resource:\"game\", page:\"Game\"}");
         engine.pushVariable("cards", cards);
         engine.pushVariable("images", prepareImages(cards));
         engine.pushVariable("singleCard", new Resource.ClassResource(BuildCards.class, "./templates/singlecard.odg"));
         engine.pushVariable("cardForeground", new Resource.ClassResource(BuildCards.class, "./templates/foreground.odg"));
         engine.pushVariable("cardBackground", new Resource.ClassResource(BuildCards.class, "./templates/background.odg"));
+        engine.pushVariable("cardsBuilder", new Resource.ClassResource(BuildCards.class, "./templates/cardsbuilder.odg"));
+        engine.pushVariable("game", new Resource.ClassResource(BuildCards.class, "./templates/game.odg"));
+        engine.pushVariable("titleCard", new Resource.ClassResource(BuildCards.class, "./templates/title.odg"));
         engine.pushVariable("background", new Resource.ClassResource(BuildCards.class, "./images/titelhintergrund.png"));
         engine.pushVariable("title", data.getProperty("titel"));
         engine.pushVariable("title2", data.getProperty("titel2"));
