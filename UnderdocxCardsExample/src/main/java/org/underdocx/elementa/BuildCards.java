@@ -43,10 +43,11 @@ public class BuildCards {
         engine.registerStringReplacement("game", "${Import $resource:\"game\", page:\"Game\"}");
         engine.pushVariable("cards", cards);
         engine.pushVariable("images", prepareImages(cards));
+        engine.pushVariable("prepareCard", new Resource.ClassResource(BuildCards.class, "./templates/preparecard.odg"));
         engine.pushVariable("singleCard", new Resource.ClassResource(BuildCards.class, "./templates/singlecard.odg"));
         engine.pushVariable("cardForeground", new Resource.ClassResource(BuildCards.class, "./templates/foreground.odg"));
         engine.pushVariable("cardBackground", new Resource.ClassResource(BuildCards.class, "./templates/background.odg"));
-        engine.pushVariable("cardsBuilder", new Resource.ClassResource(BuildCards.class, "./templates/cardsbuilder.odg"));
+        engine.pushVariable("builder", new Resource.ClassResource(BuildCards.class, "./templates/builder.odg"));
         engine.pushVariable("game", new Resource.ClassResource(BuildCards.class, "./templates/game.odg"));
         engine.pushVariable("titleCard", new Resource.ClassResource(BuildCards.class, "./templates/title.odg"));
         engine.pushVariable("background", new Resource.ClassResource(BuildCards.class, "./images/titelhintergrund.png"));
@@ -63,12 +64,12 @@ public class BuildCards {
         for (int i = 0; i < list.getSize(); i++) {
             String name = (String) list.getProperty(i).getProperty("name").getValue();
             if (!result.hasProperty(name)) {
-                Resource image = new Resource.ClassResource(BuildCards.class, "./images/" + name + ".png");
+                Resource image = new Resource.ClassResource(BuildCards.class, "./images/" + name + ".jpg");
                 result.add(name, new LeafDataNode<>(image));
             }
             String element = (String) list.getProperty(i).getProperty("element").getValue();
             if (!result.hasProperty(element)) {
-                Resource image = new Resource.ClassResource(BuildCards.class, "./images/" + element + ".png");
+                Resource image = new Resource.ClassResource(BuildCards.class, "./images/" + element + ".jpg");
                 result.add(element, new LeafDataNode<>(image));
             }
         }
