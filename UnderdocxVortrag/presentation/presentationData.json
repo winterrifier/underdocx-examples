@@ -1,0 +1,120 @@
+{
+  "variables": {
+    "presentation": {
+      "title": "Underdocx",
+      "subtitle": "OpenSource Report Generierung\n\n<font size=\"12pt\">- oder wenn's cool werden soll:</font>\n\nSpielkarten gehen auch",
+      "author": "Gerald Winter"
+    },
+    "data": {
+      "contact": {
+        "name": "Jon Sutton",
+        "phone": "05321/555-123",
+        "email": "j.sutton@winterium.de",
+        "signature": "http://127.0.0.1:8000/images/signature.png"
+      },
+      "samples": [
+        {
+          "name": "Leukozyten",
+          "value": 8.1,
+          "unit": "10⁹/l",
+          "min": 4.0,
+          "max": 10.0
+        },
+        {
+          "name": "Erythrozyten",
+          "value": 4.2,
+          "unit": "10¹²/l",
+          "min": 4.1,
+          "max": 5.1
+        },
+        {
+          "name": "Hämoglobin",
+          "value": 12.0,
+          "unit": "g/dl",
+          "min": 11.5,
+          "max": 16.0
+        },
+        {
+          "name": "Hämatokrit",
+          "value": 37,
+          "unit": "%",
+          "min": 36,
+          "max": 48
+        },
+        {
+          "name": "MCV",
+          "value": 88,
+          "unit": "fl",
+          "min": 80,
+          "max": 96
+        },
+        {
+          "name": "MCH",
+          "value": 29,
+          "unit": "pg",
+          "min": 28,
+          "max": 33
+        },
+        {
+          "name": "MCHC",
+          "value": 33,
+          "unit": "g/dl",
+          "min": 33,
+          "max": 36
+        },
+        {
+          "name": "Thrombozyten",
+          "value": 315,
+          "unit": "10³/µl",
+          "min": 170,
+          "max": 450
+        },
+        {
+          "name": "Cholesterin",
+          "value": 212,
+          "unit": "mg/dl",
+          "min": 0,
+          "max": 200
+        },
+        {
+          "name": "LDL-Cholesterin",
+          "value": 119,
+          "unit": "mg/dl",
+          "min": 0,
+          "max": 130
+        },
+        {
+          "name": "HDL-Cholesterin",
+          "value": 49,
+          "unit": "mg/dl",
+          "min": 40,
+          "max": null
+        },
+        {
+          "name": "Triglyzeride",
+          "value": 218,
+          "unit": "mg/dl",
+          "min": 0,
+          "max": 150
+        },
+        {
+          "name": "Glukose (nüchtern)",
+          "value": 82,
+          "unit": "mg/dl",
+          "min": 60,
+          "max": 100
+        }
+      ]
+    }
+  },
+  "stringReplacements": {
+    "removeBox": "${Remove type:\"box\", now:false}",
+    "removeBoxAndPreviousPages": "${Remove type:\"box\", now:false} ${removePreviousPages}",
+    "title": "${$presentation.title}",
+    "subtitle": "${$presentation.subtitle markup:true}",
+    "author": "${$presentation.author}",
+    "showMaster": "${PageStyle masterPage:\"CardNoTitle\"} ${Import uri:\"http://127.0.0.1:8000/templates/master.odp\", page:\"Master\" }",
+    "showSignature": "${Import uri:\"http://127.0.0.1:8000/templates/signature.odp\", page:\"Signature\" }",
+    "showTable": "${Import uri:\"http://127.0.0.1:8000/templates/table.odp\", page:\"Table\" }"
+  }
+}

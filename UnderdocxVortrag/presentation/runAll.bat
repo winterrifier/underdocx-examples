@@ -1,0 +1,2 @@
+start runCleanupAndUpdate
+start runResourceServer
