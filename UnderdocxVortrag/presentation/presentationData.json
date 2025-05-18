@@ -115,6 +115,7 @@
     "author": "${$presentation.author}",
     "showMaster": "${PageStyle masterPage:\"CardNoTitle\"} ${Import uri:\"http://127.0.0.1:8000/templates/master.odp\", page:\"Master\" }",
     "showSignature": "${Import uri:\"http://127.0.0.1:8000/templates/signature.odp\", page:\"Signature\" }",
-    "showTable": "${Import uri:\"http://127.0.0.1:8000/templates/table.odp\", page:\"Table\" }"
+    "showTable": "${Import uri:\"http://127.0.0.1:8000/templates/table.odp\", page:\"Table\" }",
+    "time": "${Time outputFormat:\"dd.MM.yyyy HH:mm:ss\"}"
   }
 }

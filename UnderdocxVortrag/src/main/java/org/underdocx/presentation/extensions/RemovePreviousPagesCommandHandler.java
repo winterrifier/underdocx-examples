@@ -34,7 +34,6 @@ import org.underdocx.doctypes.odf.odp.OdpContainer;
 import org.underdocx.doctypes.odf.tools.OdfNodes;
 import org.underdocx.enginelayers.baseengine.CommandHandlerResult;
 import org.underdocx.enginelayers.baseengine.ModifierNodeResult;
-import org.underdocx.environment.UnderdocxEnv;
 import org.w3c.dom.Node;
 
 public class RemovePreviousPagesCommandHandler extends AbstractTextualCommandHandler<OdpContainer, OdfPresentationDocument> {
@@ -48,12 +47,9 @@ public class RemovePreviousPagesCommandHandler extends AbstractTextualCommandHan
         Node currentPage = Nodes.findOldestAncestorNode(placeholderNode, OdfElement.PAGE).orElse(null);
         OdfNodes.getMainContentNode(selection.getDocContainer()).ifPresent(pageContainer -> {
             for (Node page : Nodes.getChildren(pageContainer, OdfElement.PAGE).collect()) {
-                UnderdocxEnv.getInstance().logger.trace("checking for removal: " + page);
                 if (page == currentPage) {
-                    UnderdocxEnv.getInstance().logger.trace("Stopping removal: " + page);
                     break;
                 } else {
-                    UnderdocxEnv.getInstance().logger.trace("Removing: " + page);
                     Nodes.deleteNode(page);
                 }
             }
