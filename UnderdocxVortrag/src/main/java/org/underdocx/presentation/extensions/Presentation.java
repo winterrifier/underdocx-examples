@@ -30,7 +30,6 @@ import org.underdocx.common.types.Resource;
 import org.underdocx.doctypes.EngineAPI;
 import org.underdocx.doctypes.odf.odp.OdpContainer;
 import org.underdocx.doctypes.odf.odp.OdpEngine;
-import org.underdocx.environment.UnderdocxEnv;
 
 public class Presentation implements EngineProvider<OdpContainer, OdfPresentationDocument> {
     @Override
@@ -40,7 +39,6 @@ public class Presentation implements EngineProvider<OdpContainer, OdfPresentatio
 
     @Override
     public EngineAPI<OdpContainer, OdfPresentationDocument> createEngine() {
-        UnderdocxEnv.getInstance().isDebug = true;
         OdpEngine engine = new OdpEngine();
         engine.registerParametersCommandHandler(new RemovePreviousPagesCommandHandler(engine.getModifiers()));
         return engine;

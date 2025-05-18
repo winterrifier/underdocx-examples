@@ -32,4 +32,4 @@ if exist generated07.odp (
 
 java -jar underdocx-vortrag-0.1-jar-with-dependencies.jar ./%inputFile% ./%outputFile% ./presentationData.json
 start "" ./%outputFile%
-pause
+#pause
