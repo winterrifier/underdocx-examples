@@ -1,9 +1,13 @@
 {
   "variables": {
     "presentation": {
-      "title": "Underdocx",
-      "subtitle": "OpenSource Report Generierung\n\n<font size=\"12pt\">- oder wenn's cool werden soll:</font>\n\nSpielkarten gehen auch",
-      "author": "Gerald Winter"
+      "topic": "Laborergebnisse ${patient}",
+      "salution": "Sehr geehrte Frau",
+      "title": "Dr.",
+      "name": "Schmidt",
+      "patient": "Hans Müller",
+      "date": "2025-06-12",
+      "signature": "<b>J. Sutton</b>\n<i><font size=\"14pt\">Laborleitung</font></i>"
     },
     "data": {
       "contact": {
@@ -110,9 +114,13 @@
   "stringReplacements": {
     "removeBox": "${Remove type:\"box\", now:false}",
     "removeBoxAndPreviousPages": "${Remove type:\"box\", now:false} ${removePreviousPages}",
+    "topic": "${$presentation.topic rescan:true}",
+    "salution": "${$presentation.salution}",
     "title": "${$presentation.title}",
-    "subtitle": "${$presentation.subtitle markup:true}",
-    "author": "${$presentation.author}",
+    "name": "${$presentation.name}",
+    "patient": "${$presentation.patient}",
+    "date": "${Date $value:\"presentation.date\", outputFormat:\"dd.MM.yyyy\"}",
+    "signature": "${$presentation.signature markup:true}",
     "showMaster": "${PageStyle masterPage:\"CardNoTitle\"} ${Import uri:\"http://127.0.0.1:8000/templates/master.odp\", page:\"Master\" }",
     "showSignature": "${Import uri:\"http://127.0.0.1:8000/templates/signature.odp\", page:\"Signature\" }",
     "showTable": "${Import uri:\"http://127.0.0.1:8000/templates/table.odp\", page:\"Table\" }",
