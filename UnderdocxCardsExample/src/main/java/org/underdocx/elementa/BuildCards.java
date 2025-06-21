@@ -36,8 +36,13 @@ import java.io.IOException;
 public class BuildCards {
 
     public static void main(String[] args) throws IOException {
+        generateCards("de");
+        generateCards("en");
+    }
+
+    private static void generateCards(String lang) throws IOException {
         OdgContainer doc = new OdgContainer(BuildCards.class.getResourceAsStream("./templates/demo.odg"));
-        MapDataNode data = new MapDataNode(BuildCards.class.getResourceAsStream("./data/elementa.json"));
+        MapDataNode data = new MapDataNode(BuildCards.class.getResourceAsStream("./data/elementa_%s.json".formatted(lang)));
         DataNode<?> cards = data.getProperty("karten");
         OdgEngine engine = new OdgEngine();
         engine.registerStringReplacement("game", "${Import $resource:\"game\", page:\"Game\"}");
@@ -63,8 +68,9 @@ public class BuildCards {
         MapDataNode result = new MapDataNode();
         for (int i = 0; i < list.getSize(); i++) {
             String name = (String) list.getProperty(i).getProperty("name").getValue();
+            Integer id = (Integer) list.getProperty(i).getProperty("id").getValue();
             if (!result.hasProperty(name)) {
-                Resource image = new Resource.ClassResource(BuildCards.class, "./images/" + name + ".jpg");
+                Resource image = new Resource.ClassResource(BuildCards.class, "./images/" + id + ".jpg");
                 result.add(name, new LeafDataNode<>(image));
             }
             String element = (String) list.getProperty(i).getProperty("element").getValue();

@@ -1,0 +1,116 @@
+{
+  "titel": "Elementa",
+  "titel2": "Generated with AI and underdocx",
+  "karten": [
+    {
+      "id": 0,
+      "name": "Ignarus, the Flame Caller",
+      "element": "Feuer",
+      "staerke": 9,
+      "verteidigung": 3,
+      "intelligenz": 6,
+      "geschwindigkeit": 5,
+      "beschreibung": "A hot-blooded warrior from the lava lands whose sword glows like the sun. He fearlessly charges into any battle.",
+      "funktion": "When attacking, deal +2 damage against Earth cards."
+    },
+    {
+      "id": 1,
+      "name": "Pyra, the Ash Queen",
+      "element": "Feuer",
+      "staerke": 7,
+      "verteidigung": 4,
+      "intelligenz": 9,
+      "geschwindigkeit": 6,
+      "beschreibung": "A cunning fire sorceress who creates illusions from glowing ash. Her enemies quickly lose track of reality.",
+      "funktion": "Reduces the opponent's intelligenz by -2 if they are Water."
+    },
+    {
+      "id": 2,
+      "name": "Vulkanor, the Earthsplitter",
+      "element": "Feuer",
+      "staerke": 10,
+      "verteidigung": 2,
+      "intelligenz": 5,
+      "geschwindigkeit": 4,
+      "beschreibung": "Born from the heart of a volcano, he unleashes explosive power with every strike.",
+      "funktion": "Once per game, he can instantly defeat an opponent if their verteidigung is less than 4."
+    },
+    {
+      "id": 3,
+      "name": "Funka, the Flame Child",
+      "element": "Feuer",
+      "staerke": 5,
+      "verteidigung": 5,
+      "intelligenz": 7,
+      "geschwindigkeit": 7,
+      "beschreibung": "A curious fire spirit who loves to play with embers. Quick, cheeky, and unpredictable.",
+      "funktion": "When drawing, look at two cards and keep one."
+    },
+    {
+      "id": 4,
+      "name": "Krax, the Firebird",
+      "element": "Feuer",
+      "staerke": 6,
+      "verteidigung": 6,
+      "intelligenz": 6,
+      "geschwindigkeit": 10,
+      "beschreibung": "A mystical bird with glowing feathers that traces fire trails across the sky.",
+      "funktion": "Cannot be attacked by Air cards."
+    },
+    {
+      "id": 5,
+      "name": "Brandak, the Berserker",
+      "element": "Feuer",
+      "staerke": 8,
+      "verteidigung": 4,
+      "intelligenz": 3,
+      "geschwindigkeit": 6,
+      "beschreibung": "A roaring fighter who goes into a rage when wounded.",
+      "funktion": "Gains +2 staerke if struck in the previous round."
+    },
+    {
+      "id": 6,
+      "name": "Gluthain, the Smith",
+      "element": "Feuer",
+      "staerke": 6,
+      "verteidigung": 7,
+      "intelligenz": 8,
+      "geschwindigkeit": 3,
+      "beschreibung": "A wise blacksmith who forges magical weapons from molten ore.",
+      "funktion": "Permanently increases the staerke of any own card by +1."
+    },
+    {
+      "id": 7,
+      "name": "Fiora, the Fire Jumper",
+      "element": "Feuer",
+      "staerke": 5,
+      "verteidigung": 5,
+      "intelligenz": 7,
+      "geschwindigkeit": 9,
+      "beschreibung": "An acrobat who moves through the air like a flame.",
+      "funktion": "Has a 50% chance to dodge enemy attacks."
+    },
+    {
+      "id": 8,
+      "name": "Magmar, the Enraged",
+      "element": "Feuer",
+      "staerke": 9,
+      "verteidigung": 6,
+      "intelligenz": 2,
+      "geschwindigkeit": 3,
+      "beschreibung": "An angry fire golem who blindly charges at his foes.",
+      "funktion": "Automatically attacks even if not chosen."
+    },
+    {
+      "id": 9,
+      "name": "Luma, the Light Flame",
+      "element": "Feuer",
+      "staerke": 4,
+      "verteidigung": 5,
+      "intelligenz": 10,
+      "geschwindigkeit": 6,
+      "beschreibung": "A radiant being with healing flames. She brings light to the darkness.",
+      "funktion": "Heals any own card by +3 verteidigung."
+    }
+  ]
+}
