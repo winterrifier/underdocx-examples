@@ -59,7 +59,7 @@ public class BuildCards {
         engine.pushVariable("title", data.getProperty("titel"));
         engine.pushVariable("title2", data.getProperty("titel2"));
         engine.run(doc);
-        doc.show();
+        //doc.show();
         doc.showPDF();
     }
 
