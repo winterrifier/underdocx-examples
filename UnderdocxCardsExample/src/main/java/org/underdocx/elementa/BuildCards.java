@@ -24,6 +24,7 @@ SOFTWARE.
 
 package org.underdocx.elementa;
 
+import org.underdocx.common.tools.Convenience;
 import org.underdocx.common.types.Resource;
 import org.underdocx.doctypes.odf.odg.OdgContainer;
 import org.underdocx.doctypes.odf.odg.OdgEngine;
@@ -32,12 +33,16 @@ import org.underdocx.enginelayers.modelengine.data.simple.LeafDataNode;
 import org.underdocx.enginelayers.modelengine.data.simple.MapDataNode;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class BuildCards {
 
     public static void main(String[] args) throws IOException {
-        generateCards("de");
-        generateCards("en");
+        for (String lang : getLanguages(args)) {
+            generateCards(lang);
+        }
     }
 
     private static void generateCards(String lang) throws IOException {
@@ -59,7 +64,7 @@ public class BuildCards {
         engine.pushVariable("title", data.getProperty("titel"));
         engine.pushVariable("title2", data.getProperty("titel2"));
         engine.run(doc);
-        //doc.show();
+        doc.show();
         doc.showPDF();
     }
 
@@ -80,5 +85,14 @@ public class BuildCards {
             }
         }
         return result;
+    }
+
+    private static Set<String> getLanguages(String[] args) {
+        return Convenience.also(new HashSet<>(), result -> {
+            result.addAll(Arrays.asList(args));
+            if (result.isEmpty()) {
+                result.add("de");
+            }
+        });
     }
 }
